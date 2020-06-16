@@ -30,6 +30,11 @@ catkin_package(
   CFG_EXTRAS cv_bridge-extras.cmake
 )
 
+### FOR PROFILING (need to set after catkin_package)
+add_compile_options(-pg)
+set(catkin_LIBRARIES ${catkin_LIBRARIES} -pg)
+###
+
 catkin_python_setup()
 
 include_directories(include ${Boost_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
